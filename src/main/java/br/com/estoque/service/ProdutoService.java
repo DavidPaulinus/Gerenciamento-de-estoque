@@ -31,4 +31,10 @@ public class ProdutoService {
 		
 		return prod;
 	}
+
+	public Page<Produto> excluir(Long id) {
+		repo.deleteById(id);
+		
+		return listarProdutos();
+	}
 }
