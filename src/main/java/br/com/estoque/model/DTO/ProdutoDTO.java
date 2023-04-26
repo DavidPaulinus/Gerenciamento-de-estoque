@@ -16,7 +16,10 @@ public record ProdutoDTO(
 		String descricao,
 		@NotNull 
 		@JsonFormat(pattern = "dd/MM/yyyy") 
-		LocalDate data
+		LocalDate data,
+		@NotNull
+		Integer estoque,
+		Integer vendido
 		) {
 
 }

@@ -25,12 +25,16 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private LocalDate data;
+	private Integer estoque;
+	private Integer vendido;
 
 	public Produto(ProdutoDTO dto) {
 		this.tipo = dto.tipo();
 		this.nome = dto.nome();
 		this.descricao = dto.descricao();
 		this.data = dto.data();
+		this.estoque = dto.estoque();
+		this.vendido = 0;
 	}
 
 	public void atualizar(ProdutoDTO dto) {
@@ -38,5 +42,7 @@ public class Produto {
 		this.nome = dto.nome();
 		this.descricao = dto.descricao();
 		this.data = dto.data();
+		this.estoque = dto.estoque();
+		this.vendido = dto.vendido();
 	}
 }
