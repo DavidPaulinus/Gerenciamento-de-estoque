@@ -1,7 +1,9 @@
 package br.com.estoque.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,5 +27,10 @@ public class EstoqueController {
 		var prod = serv.adicionarItem(dto);	
 		
 		return ResponseEntity.created(uri.path("/estoque").buildAndExpand(prod.getId()).toUri()).body(new DetalharProdutoDTO(prod));
+	}
+	
+	@GetMapping
+	public ResponseEntity<Page<DetalharProdutoDTO>> listarProdutos(){
+		return ResponseEntity.ok(serv.listarProdutos().map(DetalharProdutoDTO::new));
 	}
 }

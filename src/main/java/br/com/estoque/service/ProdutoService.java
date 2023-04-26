@@ -1,6 +1,8 @@
 package br.com.estoque.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
 
 import br.com.estoque.model.Produto;
@@ -17,5 +19,9 @@ public class ProdutoService {
 		repo.save(prod);
 		
 		return prod;
+	}
+
+	public Page<Produto> listarProdutos() {
+		return new PageImpl<>(repo.findAll());
 	}
 }
