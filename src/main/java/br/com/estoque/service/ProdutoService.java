@@ -24,4 +24,11 @@ public class ProdutoService {
 	public Page<Produto> listarProdutos() {
 		return new PageImpl<>(repo.findAll());
 	}
+
+	public Produto editar(Long id, ProdutoDTO dto) {
+		var prod = repo.findById(id).orElseThrow(() -> new RuntimeException("Id inválido. Produto não encontrado."));
+		prod.atualizar(dto);
+		
+		return prod;
+	}
 }

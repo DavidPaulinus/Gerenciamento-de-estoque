@@ -32,4 +32,11 @@ public class Produto {
 		this.descricao = dto.descricao();
 		this.data = dto.data();
 	}
+
+	public void atualizar(ProdutoDTO dto) {
+		this.tipo = dto.tipo();
+		this.nome = dto.nome();
+		this.descricao = dto.descricao();
+		this.data = dto.data();
+	}
 }
